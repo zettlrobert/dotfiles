@@ -53,3 +53,6 @@ To manage user-level configuration in the Home directory, we need to install Hom
 - plymouth luks screen
 - get sddm theme
 - install fonts
+- zsh, zap, fzf, terminal setup
+- docker setup
+- waybar configuration
