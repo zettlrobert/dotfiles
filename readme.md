@@ -52,3 +52,4 @@ To manage user-level configuration in the Home directory, we need to install Hom
 - workspace plugin hyprland (work like in gnome)
 - plymouth luks screen
 - get sddm theme
+- install fonts
