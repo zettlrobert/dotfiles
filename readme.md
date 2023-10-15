@@ -48,4 +48,4 @@ To manage user-level configuration in the Home directory, we need to install Hom
 - configure pipewire audio (https://nixos.wiki/wiki/PipeWire)
 - configure wofi
 - setup codeium on nixos
-
+- dunst configuration

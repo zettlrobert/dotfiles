@@ -65,7 +65,9 @@
     jack.enable = true;
   };
 
-  ######## -------------------------------------------------------------
+  
+
+  ######## Starting my Configuration
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.zettlrobert = {
@@ -99,6 +101,10 @@
     tree-sitter
     gcc
     coreutils
+    polkit-kde-agent # authentication agent
+    dunst # notificaiton daemon
+    wireplumber # modular session policy manager for pipewire
+    xdg-desktop-portal-hyprland # xdg-desktop-portal backend for hyprland
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
