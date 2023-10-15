@@ -49,3 +49,6 @@ To manage user-level configuration in the Home directory, we need to install Hom
 - configure wofi
 - setup codeium on nixos
 - dunst configuration
+- workspace plugin hyprland (work like in gnome)
+- plymouth luks screen
+- get sddm theme
