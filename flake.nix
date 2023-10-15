@@ -53,8 +53,6 @@
       #   sudo nixos-rebuild switch --flake .#nixos-test
       "zettlrobert" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        hostname = "zerodev";
-
         # The Nix module system can modularize configuration,
         # improving the maintainability of configuration.
         #
