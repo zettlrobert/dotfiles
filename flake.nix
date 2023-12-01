@@ -9,16 +9,22 @@
        url = "github:nixos/nixpkgs/nixos-unstable";
     };
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/release-23.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
   # The `@` syntax here is used to alias the attribute set of the
   # inputs's parameter, making it convenient to use inside the function.
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, ... }@inputs: 
+    let
+      vars = {
+        username = "zettlrobert";
+      };
+    in
+  {
     nixosConfigurations = {
-      zettlrobert = nixpkgs.lib.nixosSystem {
+      "zettlrobert" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         # Each parameter in the `modules` is a Nix Module, and
         # there is a partial introduction to it in the nixpkgs manual:

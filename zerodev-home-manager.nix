@@ -1,7 +1,12 @@
 { config, pkgs, ... }:
 
+# Import and assign Variables
+let
+  username = vars.username;
+in
+
 {
-  home.username = "zettlrobert";
+  home.username = username;
   home.homeDirectory = "/home/zettlrobert";
 
   # link the configuration file in current directory to the specified location in home directory

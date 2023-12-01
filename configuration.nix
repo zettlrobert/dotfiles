@@ -108,10 +108,6 @@
     gnome.gnome-tweaks # Gnome Tweaks
     fzf
     xclip # This is not wayland compatible
-  ];
-
-  # Fonts
-  fonts.packages = with pkgs; [
     nerdfonts
   ];
 
