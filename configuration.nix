@@ -1,7 +1,3 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { config, pkgs, ... }:
 
 {
@@ -14,8 +10,10 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "zerodev"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  # Define your hostname.
+  networking.hostName = "zerodev";
+  # Enables wireless support via wpa_supplicant.
+  networking.wireless.enable = true;  
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -110,6 +108,11 @@
     dunst # notificaiton daemon
     wireplumber # modular session policy manager for pipewire
     # xdg-desktop-portal-hyprland # xdg-desktop-portal backend for hyprland
+  ];
+
+  # Fonts
+  fonts.packages = with pkgs; [
+    nerdfonts
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
