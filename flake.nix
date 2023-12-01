@@ -1,5 +1,5 @@
 {
-  description = "Zerodev Nixos Flake";
+  description = "Nix OS System Configurations";
 
   # This is the standard format for flake.nix.
   # `inputs` are the dependencies of the flake,
@@ -13,8 +13,10 @@
 
     # Official NixOS package source, using nixos-unstable branch here
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    home-manager.url = "github:nix-community/home-manager";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # home-manager, used for managing user configuration
 #    home-manager = {

@@ -14,7 +14,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "zerodev"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -40,30 +40,35 @@
   # Here the configuration starts for overview purposes first steps are between these brackets - the system wide installed programs aka vim, firefox...
   
   # Hyprland Initial Setup
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-  };
+#  programs.hyprland = {
+#    enable = true;
+#    xwayland.enable = true;
+#  };
 
   # Variable to tell Software to use Wayland
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+#  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   # Enable Flakes on the System
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Display Manager
-  services.xserver.displayManager.sddm.enable = true; #This line enables sddm
+  #  services.xserver.displayManager.sddm.enable = true; #This line enables sddm
+  #---
+  # GNOME
+  #---
   services.xserver.enable = true; # Might need this for Xwayland 
+  services.xserver.displayManager.gdm.enable = true;
+  services.xserver.desktopManager.gnome.enable = true;
 
   # rtkit is optional but recommended
   security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    jack.enable = true;
-  };
+ # services.pipewire = {
+ #   enable = true;
+ #   alsa.enable = true;
+ #   alsa.support32Bit = true;
+ #   pulse.enable = true;
+ #   jack.enable = true;
+ # };
 
   
 
@@ -104,7 +109,7 @@
     polkit-kde-agent # authentication agent
     dunst # notificaiton daemon
     wireplumber # modular session policy manager for pipewire
-    xdg-desktop-portal-hyprland # xdg-desktop-portal backend for hyprland
+    # xdg-desktop-portal-hyprland # xdg-desktop-portal backend for hyprland
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
