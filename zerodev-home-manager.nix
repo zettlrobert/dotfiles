@@ -1,12 +1,7 @@
 { config, pkgs, ... }:
 
-# Import and assign Variables
-let
-  username = vars.username;
-in
-
 {
-  home.username = username;
+  home.username = "zettlrobert";
   home.homeDirectory = "/home/zettlrobert";
 
   # link the configuration file in current directory to the specified location in home directory
@@ -23,6 +18,13 @@ in
     userName = "zettlrobert";
     userEmail = "zettl.robert@gmail.com";
   };
+
+  # ---------------------------------------------------------
+  # Configuration
+  home.file."test".source = ./submodules/test;
+  home.file."test".target = ".config";
+
+  # ---------------------------------------------------------
 
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
