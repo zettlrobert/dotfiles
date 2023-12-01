@@ -1,7 +1,6 @@
 { config, pkgs, ... }:
 
 {
-  # TODO please change the username & home direcotry to your own
   home.username = "zettlrobert";
   home.homeDirectory = "/home/zettlrobert";
 
@@ -12,12 +11,6 @@
   # home.file.".xxx".text = ''
   #     xxx
   # '';
-
-  # set cursor size and dpi for 4k monitor
-#  xresources.properties = {
-#    "Xcursor.size" = 16;
-#    "Xft.dpi" = 172;
-#  };
 
   # basic configuration of git, please change to your own
   programs.git = {
@@ -45,27 +38,27 @@
     fzf # A command-line fuzzy finder
 
     # networking tools
-   # mtr # A network diagnostic tool
-   # iperf3
-   # dnsutils  # `dig` + `nslookup`
-   # ldns # replacement of `dig`, it provide the command `drill`
-   # aria2 # A lightweight multi-protocol & multi-source command-line download utility
-   # socat # replacement of openbsd-netcat
-   # nmap # A utility for network discovery and security auditing
-   # ipcalc  # it is a calculator for the IPv4/v6 addresses
+    # mtr # A network diagnostic tool
+    # iperf3
+    # dnsutils  # `dig` + `nslookup`
+    # ldns # replacement of `dig`, it provide the command `drill`
+    # aria2 # A lightweight multi-protocol & multi-source command-line download utility
+    # socat # replacement of openbsd-netcat
+    # nmap # A utility for network discovery and security auditing
+    # ipcalc  # it is a calculator for the IPv4/v6 addresses
 
     # productivity
     # hugo # static site generator
     # glow # markdown previewer in terminal
 
-   # btop  # replacement of htop/nmon
-   # iotop # io monitoring
-   # iftop # network monitoring
+    # btop  # replacement of htop/nmon
+    # iotop # io monitoring
+    # iftop # network monitoring
 
     # system call monitoring
-   # strace # system call monitoring
-   # ltrace # library call monitoring
-   # lsof # list open files
+    # strace # system call monitoring
+    # ltrace # library call monitoring
+    # lsof # list open files
 
     # system tools
     sysstat
@@ -90,13 +83,6 @@
   programs.bash = {
     enable = true;
     enableCompletion = true;
-
-    # set some aliases, feel free to add more or remove some
-#    shellAliases = {
-#      k = "kubectl";
-#      urldecode = "python3 -c 'import sys, urllib.parse as ul; print(ul.unquote_plus(sys.stdin.read()))'";
-#      urlencode = "python3 -c 'import sys, urllib.parse as ul; print(ul.quote_plus(sys.stdin.read()))'";
-#    };
   };
 
   # This value determines the home Manager release that your

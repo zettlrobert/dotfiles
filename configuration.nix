@@ -47,21 +47,22 @@
   # Display Manager
   #  services.xserver.displayManager.sddm.enable = true; #This line enables sddm
 
- # Audio
- services.pipewire = {
-   enable = true;
-   alsa.enable = true;
-   alsa.support32Bit = true;
-   pulse.enable = true;
-   jack.enable = true;
- };
-
   #---
   # GNOME
   #---
   services.xserver.enable = true; # Might need this for Xwayland 
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
+  
+  # Audio
+  hardware.pulseaudio.enable = false;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    jack.enable = true;
+  };
 
   # rtkit is optional but recommended
   security.rtkit.enable = true;
@@ -101,7 +102,7 @@
     polkit-kde-agent # authentication agent
     dunst # notificaiton daemon
     wireplumber # modular session policy manager for pipewire
-    # xdg-desktop-portal-hyprland # xdg-desktop-portal backend for hyprland
+    xdg-desktop-portal-hyprland # xdg-desktop-portal backend for hyprland
   ];
 
   # Fonts
