@@ -6,6 +6,10 @@
       ./hardware-configuration.nix
     ];
 
+  # Configure Nix
+  # Enable Flakes on the System
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -13,8 +17,7 @@
   # Define your hostname.
   networking.hostName = "zerodev";
   # Enables wireless support via wpa_supplicant.
-  networking.wireless.enable = true;  
-
+  # networking.wireless.enable = true;  
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
@@ -33,24 +36,26 @@
     layout = "us";
     xkbVariant = "";
   };
-
-  ######## Starting my Configuration
-  # Here the configuration starts for overview purposes first steps are between these brackets - the system wide installed programs aka vim, firefox...
   
   # Hyprland Initial Setup
 #  programs.hyprland = {
 #    enable = true;
 #    xwayland.enable = true;
 #  };
-
   # Variable to tell Software to use Wayland
 #  environment.sessionVariables.NIXOS_OZONE_WL = "1";
-
-  # Enable Flakes on the System
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
   # Display Manager
   #  services.xserver.displayManager.sddm.enable = true; #This line enables sddm
+
+ # Audio
+ services.pipewire = {
+   enable = true;
+   alsa.enable = true;
+   alsa.support32Bit = true;
+   pulse.enable = true;
+   jack.enable = true;
+ };
+
   #---
   # GNOME
   #---
@@ -60,17 +65,6 @@
 
   # rtkit is optional but recommended
   security.rtkit.enable = true;
- # services.pipewire = {
- #   enable = true;
- #   alsa.enable = true;
- #   alsa.support32Bit = true;
- #   pulse.enable = true;
- #   jack.enable = true;
- # };
-
-  
-
-  ######## Starting my Configuration
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.zettlrobert = {
