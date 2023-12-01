@@ -107,6 +107,7 @@
     xdg-desktop-portal-hyprland # xdg-desktop-portal backend for hyprland
     gnome.gnome-tweaks # Gnome Tweaks
     fzf
+    xclip # This is not wayland compatible
   ];
 
   # Fonts

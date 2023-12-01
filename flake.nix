@@ -2,7 +2,12 @@
   description = "Nix OS System Configurations";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs = {
+      url = "github:nixos/nixpkgs/nixos-23.05";
+    };
+    nixpkgs-unstable = {
+       url = "github:nixos/nixpkgs/nixos-unstable";
+    };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -11,12 +16,13 @@
 
   # The `@` syntax here is used to alias the attribute set of the
   # inputs's parameter, making it convenient to use inside the function.
-  outputs = { self, nixpkgs, home-manager, ... }@inputs: {
-  let
-    vars = {
-      user = "zettlrobert";
-    }
-  in
+  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, ... }@inputs:
+    let
+      vars = {
+        user = "zettlrobert";
+      };
+    in
+  {
     nixosConfigurations = {
       "zettlrobert" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
