@@ -100,11 +100,13 @@
     tree-sitter
     gcc
     coreutils
+    neovim
     polkit-kde-agent # authentication agent
     dunst # notificaiton daemon
     wireplumber # modular session policy manager for pipewire
     xdg-desktop-portal-hyprland # xdg-desktop-portal backend for hyprland
     gnome.gnome-tweaks # Gnome Tweaks
+    fzf
   ];
 
   # Fonts

@@ -19,11 +19,6 @@
     userEmail = "zettl.robert@gmail.com";
   };
 
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-  };
-
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
     # archives
