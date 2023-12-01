@@ -53,6 +53,7 @@
   services.xserver.enable = true; # Might need this for Xwayland 
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
+  programs.dconf.enable = true;
   
   # Audio
   hardware.pulseaudio.enable = false;
@@ -103,6 +104,7 @@
     dunst # notificaiton daemon
     wireplumber # modular session policy manager for pipewire
     xdg-desktop-portal-hyprland # xdg-desktop-portal backend for hyprland
+    gnome.gnome-tweaks # Gnome Tweaks
   ];
 
   # Fonts
