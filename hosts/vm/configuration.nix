@@ -15,7 +15,7 @@
   boot.loader.grub.device = "/dev/vda";
   boot.loader.grub.useOSProber = true;
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "nixos-vm"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Nix
@@ -83,9 +83,9 @@
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.vm = {
+  users.users.zero = {
     isNormalUser = true;
-    description = "vm";
+    description = "this is user zero on the nixos virtual machine";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       firefox

@@ -1,8 +1,8 @@
 { config, pkgs, ... }:
 
 {
-  home.username = "vm";
-  home.homeDirectory = "/home/vm";
+  home.username = "zero";
+  home.homeDirectory = "/home/zero";
 
   # link the configuration file in current directory to the specified location in home directory
   # home.file.".config/i3/wallpaper.jpg".source = ./wallpaper.jpg;
@@ -25,6 +25,15 @@
      source = ../../submodules/kitty;
      target = ".config/kitty";
   };
+
+  home.file."nvim" = {
+	  source = builtins.fetchGit {
+	  url = "https://github.com/zettlrobert/zeronvim";
+rev = "03f74a732105909bcf103394db819c6924281baf";
+	  };
+	  target = ".config/nvim";
+  };
+
 
   # ---------------------------------------------------------
 

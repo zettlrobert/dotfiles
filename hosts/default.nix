@@ -1,5 +1,12 @@
 { inputs, nixpkgs, nixpkgs-unstable, home-manager, ... }:
-
+let
+	mobilehead = {};
+	zerodev = {};
+	vm = {
+		userName = "zero";
+		hostName = "vm";
+	};
+in
 {
   "mobilehead" = nixpkgs.lib.nixosSystem {
     system = "x86_64-linux";
@@ -43,7 +50,7 @@
     specialArgs = {
       systemVars = {
         userName = "zero";
-        hostName = "vm";
+        hostName = "nixos-vm";
       };
     };
     modules = [
@@ -51,7 +58,7 @@
       home-manager.nixosModules.home-manager {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
-        home-manager.users.vm = import ./vm/home.nix;
+        home-manager.users.zero = import ./vm/home.nix;
       }
     ];
   };
