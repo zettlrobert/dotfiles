@@ -16,22 +16,30 @@
 
   # The `@` syntax here is used to alias the attribute set of the
   # inputs's parameter, making it convenient to use inside the function.
-  outputs = { self, nixpkgs, home-manager, ... }@inputs: {
-    nixosConfigurations = {
-      "zettlrobert" = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          ./hosts/zerodev/configuration.nix
-          ./shared/packages.nix
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
+  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, ... }@inputs: 
+  {
+      nixosConfigurations = (                                               # NixOS Configurations
+        import ./hosts/zerodev {
+          inherit (nixpkgs) lib;
+          inherit inputs nixpkgs nixpkgs-unstable home-manager;
+        }
+      );
 
-            home-manager.users.zettlrobert = import ./hosts/zerodev/zerodev-home-manager.nix;
-          }
-        ];
-      };
-    };
+    # nixosConfigurations = {
+    #   "zettlrobert" = nixpkgs.lib.nixosSystem {
+    #     system = "x86_64-linux";
+    #     modules = [
+    #       ./hosts/zerodev/configuration.nix
+    #       ./shared/packages.nix
+    #       home-manager.nixosModules.home-manager
+    #       {
+    #         home-manager.useGlobalPkgs = true;
+    #         home-manager.useUserPackages = true;
+
+    #         home-manager.users.zettlrobert = import ./hosts/zerodev/zerodev-home-manager.nix;
+    #       }
+    #     ];
+    #   };
+    # };
   };
 }
