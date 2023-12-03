@@ -37,4 +37,22 @@
       }
     ];
   };
+
+  "vm" = nixpkgs.lib.nixosSystem {
+    system = "x86_64-linux";
+    specialArgs = {
+      systemVars = {
+        userName = "zero";
+        hostName = "vm";
+      };
+    };
+    modules = [
+      ./vm
+      home-manager.nixosModules.home-manager {
+        home-manager.useGlobalPkgs = true;
+        home-manager.useUserPackages = true;
+        home-manager.users.zero = import ./vm/home.nix;
+      }
+    ];
+  };
 }
