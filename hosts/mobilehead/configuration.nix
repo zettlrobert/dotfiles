@@ -1,4 +1,4 @@
-{ config, pkgs, systemVars, ... }:
+{ config, pkgs, ... }:
 
 {
   imports =
@@ -14,9 +14,8 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # Define your hostname, from systemVars
-  networking.hostName = systemVars.hostName;
-
+  # Define your hostname.
+  networking.hostName = "zerodev";
   # Enables wireless support via wpa_supplicant.
   # networking.wireless.enable = true;  
   # Configure network proxy if necessary
@@ -70,9 +69,9 @@
   security.rtkit.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.${systemVars.userName} = {
+  users.users.zettlrobert = {
     isNormalUser = true;
-    description = systemVars.userName;
+    description = "zettlrobert";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [];
   };
