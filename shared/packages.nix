@@ -31,5 +31,6 @@
     fzf
     xclip # This is not wayland compatible
     nerdfonts
+    prettierd # prettier as a daemon
   ];
 }
