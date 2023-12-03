@@ -51,7 +51,7 @@
       home-manager.nixosModules.home-manager {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
-        home-manager.users.zero = import ./vm/home.nix;
+        home-manager.users.vm = import ./vm/home.nix;
       }
     ];
   };

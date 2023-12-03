@@ -1,8 +1,8 @@
-{ config, pkgs, systemVars, ... }:
+{ config, pkgs, ... }:
 
 {
-  home.username = systemVars.userName;
-  home.homeDirectory = "/home/${systemVars.userName}";
+  home.username = "vm";
+  home.homeDirectory = "/home/vm";
 
   # link the configuration file in current directory to the specified location in home directory
   # home.file.".config/i3/wallpaper.jpg".source = ./wallpaper.jpg;
