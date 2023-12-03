@@ -79,38 +79,6 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # List packages installed in system profile. To search, run:
-  environment.systemPackages = with pkgs; [
-    vim
-    git
-    kitty
-    wget
-    curl
-    unzip
-    gzip
-    gettext # GNU build tool
-    firefox
-    zsh
-    wofi
-    waybar
-    pavucontrol
-    bitwarden
-    nodejs_20
-    lua
-    tree-sitter
-    gcc
-    coreutils
-    neovim
-    polkit-kde-agent # authentication agent
-    dunst # notificaiton daemon
-    wireplumber # modular session policy manager for pipewire
-    xdg-desktop-portal-hyprland # xdg-desktop-portal backend for hyprland
-    gnome.gnome-tweaks # Gnome Tweaks
-    fzf
-    xclip # This is not wayland compatible
-    nerdfonts
-  ];
-
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
