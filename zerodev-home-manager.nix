@@ -21,8 +21,14 @@
 
   # ---------------------------------------------------------
   # Configuration
+
+  home.file."kitty" = {
+     source = ./submodules/kitty;
+     target = ".config/kitty";
+  };
+
   home.file."test".source = ./submodules/test;
-  home.file."test".target = ".config";
+  home.file."test".target = ".config/test";
 
   # ---------------------------------------------------------
 
