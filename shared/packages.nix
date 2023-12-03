@@ -31,6 +31,6 @@
     fzf
     xclip # This is not wayland compatible
     nerdfonts
-    prettierd # prettier as a daemon
+    nodePackages.prettier # for formatting todo: this has to be moved to neovim
   ];
 }
