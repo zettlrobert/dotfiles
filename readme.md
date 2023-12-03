@@ -4,10 +4,10 @@ We install nixos with btrfs from the installer, don't selet a DE environment and
 
 ## Hosts
 
-| Hostname   | Hardware                              | Description                      | Command                                             |
-| ---------- | ------------------------------------- | -------------------------------- | --------------------------------------------------- |
-| zerodev    | amd cpu, amd gpu, desktop peripherals | 2023 desktop pc running on nvme0 | `sudo nixos-rebuild switch --flake ./hosts/zerodev` |
-| mobilehead | amd cpu, amd gpu, desktop peripherals | 2023 desktop pc running on nvme0 |                                                     |
+| Hostname   | Hardware                              | Description                      | Command                                          |
+| ---------- | ------------------------------------- | -------------------------------- | ------------------------------------------------ |
+| zerodev    | amd cpu, amd gpu, desktop peripherals | 2023 desktop pc running on nvme0 | `sudo nixos-rebuild switch --flake .#zerodev`    |
+| mobilehead | amd cpu, amd gpu, desktop peripherals | 2023 desktop pc running on nvme0 | `sudo nixos-rebuild switch --flake .#mobilehead` |
 
 ### Installation
 

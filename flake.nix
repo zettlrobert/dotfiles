@@ -17,16 +17,11 @@
   # The `@` syntax here is used to alias the attribute set of the
   # inputs's parameter, making it convenient to use inside the function.
   outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, ... }@inputs: 
-    let
-    vars = {
-      test = "test";
-    };
-    in
     {
         nixosConfigurations = (                                               # NixOS Configurations
-          import ./hosts/zerodev {
+          import ./hosts {
             inherit (nixpkgs) lib;
-            inherit inputs nixpkgs nixpkgs-unstable home-manager vars;
+            inherit inputs nixpkgs nixpkgs-unstable home-manager;
           }
         );
 

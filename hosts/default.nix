@@ -1,17 +1,40 @@
-{ inputs, nixpkgs, nixpkgs-unstable, home-manager, vars ... }:
+{ inputs, nixpkgs, nixpkgs-unstable, home-manager, ... }:
 
 {
-  zerodev = (
-   import ./zerodev (
-    inherit (nixpkgs) lib;
-    inherit inputs nixpkgs nixpkgs-unstable home-manager vars;
-   )
-  );
+  "mobilehead" = nixpkgs.lib.nixosSystem {
+    system = "x86_64-linux";
+    specialArgs = {
+      systemVars = {
+        userName = "zettlrobert";
+        hostName = "mobilehead";
+      };
+    };
+    modules = [
+      ./mobilehead/configuration.nix
+      ../shared/packages.nix
+      home-manager.nixosModules.home-manager {
+        home-manager.useGlobalPkgs = true;
+        home-manager.useUserPackages = true;
+        home-manager.users.zettlrobert = import ./mobilehead/home.nix;
+      }
+    ];
+  };
 
-  mobilehead = (
-   import ./mobilehead (
-    inherit (nixpkgs) lib;
-    inherit inputs nixpkgs nixpkgs-unstable home-manager vars;
-   )
-  );
+  "zerodev" = nixpkgs.lib.nixosSystem {
+    system = "x86_64-linux";
+    specialArgs = {
+      systemVars = {
+        userName = "zettlrobert";
+        hostName = "zerodev";
+      };
+    };
+    modules = [
+      ./zerodev
+      home-manager.nixosModules.home-manager {
+        home-manager.useGlobalPkgs = true;
+        home-manager.useUserPackages = true;
+        home-manager.users.zettlrobert = import ./zerodev/home.nix;
+      }
+    ];
+  };
 }
