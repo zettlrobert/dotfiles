@@ -7,6 +7,7 @@
 {
   imports =
     [ # Include the results of the hardware scan.
+      # NOTE: This file has to be updated for every new vm that is initialized with this repo (or find a workaround for an absolut path)
       ./hardware-configuration.nix
     ];
 
