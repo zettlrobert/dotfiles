@@ -4,5 +4,6 @@
   imports = [
     ./configuration.nix
     ../../shared/packages.nix
+    ../../desktops/gnome/gnome.nix
   ];
 }
