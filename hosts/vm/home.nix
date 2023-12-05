@@ -1,6 +1,10 @@
 { config, pkgs, lib, ... }:
 
 {
+  imports = [
+    ../../desktops/gnome/home.nix
+  ];
+
   home.username = "zero";
   home.homeDirectory = "/home/zero";
 

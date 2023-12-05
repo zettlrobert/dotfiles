@@ -13,8 +13,6 @@
   systemd.services."getty@tty1".enable = false;
   systemd.services."autovt@tty1".enable = false;
 
-  programs.dconf.enable = true;
-
   # Configure keymap in X11
   services.xserver = {
     layout = "us";
@@ -31,6 +29,15 @@
     pulse.enable = true;
     jack.enable = true;
   };
+
   # rtkit is optional but recommended
   security.rtkit.enable = true;
+
+  # Gnome settings uses dconf to change settings
+  programs.dconf.enable = true;
+
+  # Advanced configuration with gnome-twweaks
+  environment.systemPackages = with pkgs; [
+    gnome.gnome-tweaks
+  ];
 }
