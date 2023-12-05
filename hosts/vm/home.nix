@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   home.username = "zero";
@@ -21,17 +21,27 @@
 
   # ---------------------------------------------------------
   # Configuration
-  home.file."kitty" = {
-     source = ../../submodules/kitty;
-     target = ".config/kitty";
-  };
+ # home.file."kitty" = {
+ #    source = ../../submodules/kitty;
+ #    target = ".config/kitty";
+ # };
+
+  home.activation."kitty" = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    ln -sf "$(pwd)/dotfiles/submodules/kitty/" $HOME/.config/kitty
+  '';
 
   home.file."nvim" = {
 	  source = builtins.fetchGit {
 	  url = "https://github.com/zettlrobert/zeronvim";
-rev = "03f74a732105909bcf103394db819c6924281baf";
+      rev = "03f74a732105909bcf103394db819c6924281baf";
 	  };
 	  target = ".config/nvim";
+  };
+
+  # To link and not just copy the direcotry it is important to have a string as path
+  home.file."test" = {
+      source = config.lib.file.mkOutOfStoreSymlink "../../submodules/test";
+      target = ".config/test";
   };
 
 
