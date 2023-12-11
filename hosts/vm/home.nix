@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ../../desktops/gnome/home.nix
+#    ../../desktops/gnome/home.nix
   ];
 
   home.username = "zero";
