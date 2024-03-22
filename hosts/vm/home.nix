@@ -37,7 +37,7 @@
   home.file."nvim" = {
 	  source = builtins.fetchGit {
 	  url = "https://github.com/zettlrobert/zeronvim";
-      rev = "03f74a732105909bcf103394db819c6924281baf";
+      rev = "382b11fff6107d47588f81529d009568630fb389";
 	  };
 	  target = ".config/nvim";
   };
